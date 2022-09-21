@@ -1,8 +1,6 @@
 {
   "name": "my-portafolio",
   "version": "0.1.0",
-  "homepage": "https://Stolkerve.github.io/My-Portfolio",
-  "private": true,
   "dependencies": {
     "@types/node": "^16.11.45",
     "@types/react": "^18.0.15",
