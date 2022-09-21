@@ -1,27 +1,42 @@
-import React from "react";
+import React, { useRef } from "react";
 import { VscChevronDown, VscFolder } from "react-icons/vsc";
-import { DiHtml5 } from "react-icons/di"
+import { DiHtml5 } from "react-icons/di";
 
-const meTags = [
+const aboutMeTags = [
   {
     tag: "Name",
-    value: "I'm Sebastian Gonzalez"
+    value: "I'm Sebastian Gonzalez",
   },
   {
     tag: "Age",
-    value: "19 years old"
+    value: "19 years old",
   },
   {
     tag: "Profession",
-    value: "Software developer 🖥️"
+    value: "Software developer 🖥️",
   },
   {
     tag: "Country",
-    value: "Venezuela 🇻🇪"
+    value: "Venezuela 🇻🇪",
+  },
+  {
+    tag: "Github",
+    value: "Stolkerve",
+    link: "https://github.com/Stolkerve"
+  },
+  {
+    tag: "Linkedin",
+    value: "Profile",
+    link: "https://www.linkedin.com/in/sebastian-gonzalez-a2060a215/"
+  },
+  {
+    tag: "Medium",
+    value: "Articles",
+    link: "https://medium.com/@devsebasgr"
   },
 ];
 
-const htmlFiles = ["me.html", "skills.html", "projects.html", "contact.html"];
+
 
 const skillsIcons = [
   "c.svg",
@@ -34,114 +49,177 @@ const skillsIcons = [
   "react.svg",
   "rust.svg",
   "typescript.svg",
-  "vue.svg"
 ];
 
 function App() {
+  const aboutMeRef = useRef<HTMLSpanElement>(null);
+  const skillsRef = useRef<HTMLSpanElement>(null);
+  const contactRef = useRef<HTMLSpanElement>(null);
+
+  const scrollTo = (ref: any) => {
+    console.log(ref.current?.offsetTop)
+    window.scrollTo({
+      top: ref.current.offsetTop,
+      behavior: "smooth"
+    })
+  }
+
+  const htmlFiles = [
+    {
+      value: "AboutMe.html",
+      onClick: scrollTo,
+      ref: aboutMeRef
+    },
+    {
+      value: "Skills.html",
+      onClick: scrollTo,
+      ref: skillsRef
+    },
+    {
+      value: "Contact.html",
+      onClick: scrollTo,
+      ref: contactRef
+    }
+  ];
+
   return (
     <div>
       {/* Folders */}
       <div className="fixed top-0 left-0 h-screen w-48 bg-green-700 text-base">
         <div className="border-b-2 py-3 pl-2">Explorer</div>
-        <div className="flex items-center">
+        <div className="flex items-center pt-2">
           <VscChevronDown className="" size={"16px"} />
           <VscFolder className="mx-1" size={"16px"} />
           <div>My Portfolio</div>
         </div>
-        {
-          htmlFiles.map((v) =>
-            <div className="ml-6 flex items-center">
-              <DiHtml5 className="mx-1"/>
-              <div>{v}</div>
-            </div>
-          )
-        }
+        {htmlFiles.map(({value, onClick, ref}) => (
+          <div className="ml-6 flex items-center">
+            <DiHtml5 className="mx-1" />
+            <button onClick={() => {onClick(ref)}}>{value}</button>
+          </div>
+        ))}
       </div>
 
       {/* main div */}
       <div className="pl-48 bg-slate-800 text-slate-300">
-
         {/* Me tag */}
-        <div className="h-screen flex py-2 pl-2">
-          <div className="flex flex-col justify-between text-xl">
-            <DrawTag tagName="Me" />
-            <div className="ml-6">
-              <DrawTag tagName="HowIm" />
-              {
-                meTags.map(({ tag, value }, key) =>
-                  <div className={"ml-6 flex"} key={key}>
-                    <DrawTag tagName={tag} />
-                    <div className="anim-typewriter">{value}</div>
-                    <DrawTag tagName={tag} close />
-                  </div>
-                )
-              }
-              <div className="ml-6 ">
-                <DrawTag tagName="img" props={[{ name: "src", value: "me.png" }]} />
-                <img className="ml-6 w-64" src={require("./assets/yo.png")} alt="Me" />
-                <DrawTag tagName="img" close />
-              </div>
-
-              <DrawTag tagName="HowIm" close />
-            </div>
-            <DrawTag tagName="Me" close />
-          </div>
-        </div>
-
-        {/* Skills tag */}
-        <div className="flex py-2 pl-1">
-          <div className="flex flex-col justify-between text-xl">
-          <DrawTag tagName="Skills" />
-          <div className="flex flex-wrap justify-center px-8">
+        <span ref={aboutMeRef}></span>
+        <DrawTag tagName="AboutMe" identation={1}>
           {
-            skillsIcons.map((icon) => 
-              <img className="w-24 mx-6 my-4" src={require(`./assets/${icon}`)} alt="icon"></img>
+            aboutMeTags.map(({ tag, value, link }, key) =>
+              <DrawTag tagName={tag} identation={1} oneLine key={key}>
+                {
+                  link ? (<a className="text-decoration-line: underline" href={link}>{value}</a>) : (<div>{value}</div>)
+                }
+              </DrawTag>
             )
           }
+          <DrawTag tagName="img" values={[{ name: "src", value: "me.png" }]} identation={0}>
+            <img
+              className="ml-6 w-64"
+              src={require("./assets/yo.png")}
+              alt="Me" />
+          </DrawTag>
+        </DrawTag>
+        {/* 
+                  <DrawTag
+                    tagName="img"
+                    values={[{ name: "src", value: "me.png" }]}
+                  />
+                  />
+                  <DrawTag tagName="img"  />
+                </div>
+
+              <DrawTag tagName="HowIm"  />
+            </div>
+            
+            <div className="ml-6 mt-6">
+              <DrawTag tagName="Education" />
+                <div className="ml-6 ">
+                <DrawTag tagName="University" />
+                  <img className="ml-6 w-72" alt="uni" src={require("./assets/unimet.jpg")}/>
+                <DrawTag tagName="University" />
+                <DrawTag tagName="Courses" />
+                  
+                <DrawTag tagName="Courses" />
+                </div>
+              <DrawTag tagName="Education"  />
+            </div>
+
+            <DrawTag tagName="AboutMe"  />
           </div>
-          <DrawTag tagName="Skills" close />
+        </div> */}
+
+        {/* Skills tag */}
+        <span ref={skillsRef}></span>
+        <DrawTag tagName="Skills" identation={1}>
+          <div className="flex flex-wrap justify-center px-8">
+            {
+              skillsIcons.map((icon) => (
+                <img
+                  className="w-24 mx-6 my-4"
+                  src={require(`./assets/${icon}`)}
+                  alt="icon"
+                ></img>
+              ))
+            }
           </div>
-        </div>
-        
+        </DrawTag>
         {/* Proyects tag */}
-        <div className="flex py-2 pl-1">
-          <div className="flex flex-col justify-between text-xl">
-            <DrawTag tagName="Projects" />
-            <DrawTag tagName="Projects" close/>
-          </div>
-        </div>
 
         {/* Contact tag */}
-        <div className="flex py-2 pl-1">
-          <div className="flex flex-col justify-between text-xl">
-            <DrawTag tagName="Contact" />
-            <DrawTag tagName="Contact" close/>
-          </div>
-        </div>
+        <span ref={contactRef}></span>
+        <DrawTag tagName="Contact" identation={0}>
+          <DrawTag tagName="Email" identation={0} oneLine>
+            <div>devsebasgr@gmail</div>
+          </DrawTag>
+        </DrawTag>
+
       </div>
     </div>
   );
 }
 
-function DrawTag({ tagName, close, props }: { tagName: string, close?: boolean, props?: Array<{ name: string, value: string }> }) {
+function DrawTag({
+  tagName,
+  identation,
+  values,
+  children,
+  oneLine
+}: {
+  tagName: string
+  identation: number
+  values?: Array<{ name: string; value: string }>
+  children?: React.ReactNode
+  oneLine?: boolean
+}) {
   return (
-    <div className="flex">
-      <div>{!close ? "<" : "</"}</div>
-      <div className="text-yellow-600">{tagName}</div>
-      {
-        props?.map(({ name, value }, key) =>
-        <span className="whitespace-pre" key={key}>
+    <div className={(oneLine ? "flex " : "") + "text-xl pl-1"}>
+      <div className="flex">
+        <div>{"<"}</div>
+        <div className="text-yellow-600">{tagName}</div>
+        {values?.map(({ name, value }, key) => (
+          <span className="whitespace-pre" key={key}>
             <span className="text-red-400">{` ${name}`}</span>
             <span className="text-slate-400">{"="}</span>
-            <span className="text-blue-400">{props.length === 1 ? `"${value}"` : `"${value}" `}</span>
+            <span className="text-blue-400">
+              {values.length === 1 ? `"${value}"` : `"${value}" `}
+            </span>
           </span>
-        )
-      }
-      <div>{">"}</div>
+        ))}
+        <div>{">"}</div>
+      </div>
+      <div className={(!oneLine ? "pl-4" : "")}>
+        {children}
+      </div>
+      <div className="flex">
+        <div>{"</"}</div>
+        <div className="text-yellow-600">{tagName}</div>
+        <div>{">"}</div>
+      </div>
     </div>
+
   );
 }
-
-
 
 export default App;

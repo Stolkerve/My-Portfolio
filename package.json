@@ -1,6 +1,7 @@
 {
   "name": "my-portafolio",
   "version": "0.1.0",
+  "homepage": "https://Stolkerve.github.io/My-Portfolio",
   "private": true,
   "dependencies": {
     "@types/node": "^16.11.45",
@@ -16,6 +17,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "deploy": "gh-pages -d build",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -37,6 +39,7 @@
   },
   "devDependencies": {
     "autoprefixer": "^10.4.8",
+    "gh-pages": "^4.0.0",
     "postcss": "^8.4.14",
     "tailwindcss": "^3.1.7"
   }
