@@ -85,7 +85,7 @@ function App() {
   return (
     <div>
       {/* Folders */}
-      <div className="fixed top-0 left-0 h-screen w-48 bg-green-700 text-base">
+      <div className="fixed top-0 left-0 h-screen w-48 bg-green-700 text-lg">
         <div className="border-b-2 py-3 pl-2">Explorer</div>
         <div className="flex items-center pt-2">
           <VscChevronDown className="" size={"16px"} />
@@ -116,7 +116,7 @@ function App() {
           }
           <DrawTag tagName="img" values={[{ name: "src", value: "me.png" }]} identation={0}>
             <img
-              className="ml-6 w-64"
+              className="ml-6 w-96"
               src={require("./assets/yo.png")}
               alt="Me" />
           </DrawTag>
@@ -157,7 +157,7 @@ function App() {
             {
               skillsIcons.map((icon) => (
                 <img
-                  className="w-24 mx-6 my-4"
+                  className="w-36 mx-6 my-4"
                   src={require(`./assets/${icon}`)}
                   alt="icon"
                 ></img>
@@ -194,7 +194,7 @@ function DrawTag({
   oneLine?: boolean
 }) {
   return (
-    <div className={(oneLine ? "flex " : "") + "text-xl pl-1"}>
+    <div className={(oneLine ? "flex " : "") + "text-3xl pl-1"}>
       <div className="flex">
         <div>{"<"}</div>
         <div className="text-yellow-600">{tagName}</div>
