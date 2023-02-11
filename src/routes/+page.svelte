@@ -4,7 +4,6 @@
 	import HtmlTag from '../lib/HtmlTag.svelte';
 	import { onMount } from 'svelte';
 	import { assets, base } from '$app/paths';
-	import HtmlTagName from '$lib/HtmlTagName.svelte';
 
 	const aboutMeTags = [
 		{
@@ -126,7 +125,7 @@
 					<span class="text-red-400">Hi! I'm Sebastian Gonzalez</span>, I study Systems Engineering
 					at the Universidad Metropolitana. I love programaing and especially when is related with
 					graphics, because you create something that other can iteract with their ayes. Also, I
-					love video games 🎮, music 🎵, cats 🐱, nature 🏞, travel 🚲 and adventures ⛰.
+					love video games 🎮, music 🎵, photography 📷, cats 🐱, nature 🏞, travel 🚲 and adventures ⛰.
 				</p>
 				{#each aboutMeTags as { tag, value, link }}
 					<HtmlTag tagName={tag} oneLine={true}>
@@ -183,6 +182,10 @@
 						</HtmlTag>
 						<HtmlTag tagName="Roles" oneLine={true}>Web developer, contracts developer and unit tester</HtmlTag>
 						<HtmlTag tagName="Results" >
+
+							<HtmlTag tagName={"Website"} oneLine={true}>
+								<a class="text-decoration-line: underline" target="_blank" rel="noreferrer" href={"https://blockjobs.site/"}>blockjobs.site</a>
+							</HtmlTag>
 							<HtmlTag tagName="Articles" oneLine={true}>Five Medium educational articles about developing on NEAR blockchain</HtmlTag>
 							<HtmlTag tagName="Libs" oneLine={true}>Deploy on crate.io near-rng a compact RNG lib to work with NEAR smarts contracts</HtmlTag>
 						</HtmlTag>
