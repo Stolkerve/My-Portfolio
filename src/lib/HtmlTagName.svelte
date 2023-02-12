@@ -9,25 +9,25 @@
 		<p class="text-html-arrow">{'<'}</p>
 		<p class="text-html-name">{tagName}</p>
 		{#if values != undefined}
-			{#each values as { name, value }, index}
-				<span class="whitespace-pre">
-					<p class="text-html-valueName">{` ${name}`}</p>
-				</span>
-				<span class="">{'='}</span>
-				{#if typeof value === 'string'}
-					<p class="text-html-string">
-						{values.length - 1 === index ? `"${value}"` : `"${value}" `}
-					</p>
-				{:else}
-					<p class="text-html-number">
-						{values.length - 1 === index ? `${value}` : `${value} `}
-					</p>
-				{/if}
-			{/each}
+				{#each values as { name, value }, index}
+					<span class="whitespace-pre">
+						<p class="text-html-valueName">{` ${name}`}</p>
+					</span>
+					<span class="">{'='}</span>
+					{#if typeof value === 'string'}
+						<p class="text-html-string break-all">
+							{values.length - 1 === index ? `"${value}"` : `"${value}" `}
+						</p>
+					{:else}
+						<p class="text-html-number break-all">
+							{values.length - 1 === index ? `${value}` : `${value} `}
+						</p>
+					{/if}
+				{/each}
 		{/if}
 		<p class="text-html-arrow">{'>'}</p>
 	{:else}
-		<div class="flex">
+		<div class="flex break-all">
 			<p class="text-html-arrow">{'</'}</p>
 			<p class="text-html-name">{tagName}</p>
 			<p class="text-html-arrow">{'>'}</p>

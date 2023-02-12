@@ -45,14 +45,16 @@
 
 </script>
 
-<div class="bg-[#1e1e1e] text-[#d4d4d4] text-lg">
-	<div class="flex max-h-screen">
+<div class="bg-[#1e1e1e] text-[#d4d4d4] text-base max-md:text-xs">
+	<div class="flex max-h-screen max-md:flex-col-reverse">
 		<!-- Files side -->
-		<FilesSideBar scrollToElemtens={scrollElements} codeElement={codeRef} />
+		<div class="flex-none">
+			<FilesSideBar scrollToElemtens={scrollElements} codeElement={codeRef} />
+		</div>
 		<Background />
 		<!-- With svelte:component this could be reduce and automate -->
 		<!-- Code side -->
-		<div bind:this={codeRef} class="w-screen overflow-scroll pl-2 z-20">
+		<div bind:this={codeRef} class="w-screen flex-1 overflow-y-scroll overflow-x-clip pl-2 z-20">
 			<!-- AboutMe Section -->
 			<span bind:this={aboutMeRef} />
 			<AboutMe />

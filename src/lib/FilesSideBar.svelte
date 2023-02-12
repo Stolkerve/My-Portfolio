@@ -82,8 +82,8 @@
 	}
 </style>
 
-<div class="h-screen w-[20rem] bg-[#252526] text-sm text-white">
-	<div class="flex items-center pt-2">
+<div class="max-md:h-auto max-md:w-full max-md:sticky max-md:bottom-0 z-30 h-screen bg-[#252526] text-sm text-white">
+	<div class="flex items-center pt-2 pr-2">
 		<div class="mr-2 ml-1">
 			<button on:click={() => showFiles = !showFiles}>
 				{#if showFiles}
@@ -96,20 +96,23 @@
 		<p>My Portfolio</p>
 	</div>
 	{#if showFiles}
-		<div class="mt-2 origin-top-left open">
+		<div class="mt-2 origin-top-left open pr-2 max-md:bottom-0 ">
 				{#each scrollToElemtens as { name, target }}
+				 	<div>
+
 					<button
 						on:click={() => scrollTo(target)}
 						class="pl-8 py-2 w-full text-left text-gray-400 hover:bg-neutral-600">{name}</button
 					>
+					</div>
 				{/each}
 		</div>
 	{:else}
-		<div class="mt-2 origin-top-left close">
+		<div class="mt-2 origin-top-left close pr-2 max-md:absolute max-md:bottom-0 ">
 				{#each scrollToElemtens as { name }}
-					<p
+					<!-- <p
 						class="pl-8 py-2 w-full text-left text-gray-400 hover:bg-neutral-600">{name}</p
-					>
+					> -->
 				{/each}
 		</div>
 	{/if}

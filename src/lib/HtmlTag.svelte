@@ -11,7 +11,7 @@
 	<HtmlTagName {values} {tagName} />
 
 	<!-- Content children -->
-	<div class={oneLine ? '' : 'pl-12'}>
+	<div class={oneLine ? '' : 'max-md:pl-4 pl-12'}>
 		<slot />
 	</div>
 

@@ -16,7 +16,7 @@
 
 <HtmlTag tagName="Contact">
     {#each contactTags as { tag, value, link }}
-        <HtmlTag tagName={tag} oneLine={true}>
+        <HtmlTag tagName={tag} >
             {#if link != undefined}
                 <a class="text-decoration-line: underline" target="_blank" rel="noreferrer" href={link}>{value}</a>
             {:else}

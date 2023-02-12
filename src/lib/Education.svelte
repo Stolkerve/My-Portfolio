@@ -2,13 +2,24 @@
 	import HtmlTag from "./HtmlTag.svelte";
 	import { assets } from '$app/paths';
 
+    const data = [
+        {
+            tag: 'Unimet',
+            srcName: 'unimet.jpg',
+            src: `${assets}/unimet.jpg`
+        },
+        {
+            tag: 'NCDCertificate',
+            srcName: 'ncd_certificate.jpg',
+            src: 'https://fleek.ipfs.io/ipfs/bafybeigvkfdskqoy6jzjs2qaeuibmtcf77d22sgn5wuqh4ytwm34eortim'
+        }
+    ]
 </script>
 
 <HtmlTag tagName="Education">
-    <HtmlTag tagName="Collage" values={[{ name: 'src', value: 'unimet.jpg' }]}>
-        <img class="my-1 ml-6 w-96" src="{assets}/unimet.jpg" alt="Me" />
-    </HtmlTag>
-    <HtmlTag tagName="Certificates" values={[{ name: 'src', value: 'ncd_certificate.jpg' }]}>
-        <img class="my-1 ml-6 w-96" src="https://fleek.ipfs.io/ipfs/bafybeigvkfdskqoy6jzjs2qaeuibmtcf77d22sgn5wuqh4ytwm34eortim" alt="Me" />
-    </HtmlTag>
+    {#each data as {srcName, src, tag} }
+        <HtmlTag tagName={tag} values={[{ name: 'src', value: srcName}]}>
+            <img class="my-1 ml-6 w-96 max-md:w-48" src={src} alt="Me" />
+        </HtmlTag>
+    {/each}
 </HtmlTag>
