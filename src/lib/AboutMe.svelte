@@ -5,7 +5,7 @@
 	const aboutMeTags = [
 		{
 			tag: 'Age',
-			value: '19 years old'
+			value: '20 years old'
 		},
 		{
 			tag: 'Profession',
@@ -33,10 +33,8 @@
         <img class="my-1 ml-6 max-md:ml-[-1.5rem]  w-96 rounded-full" src="{assets}/yo.jpg" alt="Me" />
     </HtmlTag>
     <p class="pr-4 mt-3 mb-4">
-        <span class="text-red-400">Hi! I'm Sebastian Gonzalez</span>, I study Systems Engineering
-        at the Universidad Metropolitana. I love programaing and especially when is related with
-        graphics, because you create something that other can iteract with their ayes. Also, I
-        love video games 🎮, music 🎵, photography 📷, cats 🐱, nature 🏞, travel 🚲 and adventures ⛰.
+        <span class="text-red-400">Hi! I'm Sebastian Gonzalez</span>, I love programaing, backend, frontned, desktop apps, etc. Also I love,
+		cats 🐱, nature 🏞, travel 🚲 and adventures ⛰. Especially hiking, and I'am looking and trainning for claim mountains over 4000 meters of elevation. 
     </p>
     {#each aboutMeTags as { tag, value, link }}
         <HtmlTag tagName={tag}>
