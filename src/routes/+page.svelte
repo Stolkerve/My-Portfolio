@@ -70,9 +70,9 @@
 			<Education />
 
 			<!-- Proyects and  jobs section -->
-			<span bind:this={experienceRef} />
+			<!-- <span bind:this={experienceRef} />
 			<div class="mt-4" />
-			<Experience />
+			<Experience /> -->
 
 			<!-- Contact section -->
 			<span bind:this={contactRef} />

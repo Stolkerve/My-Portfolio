@@ -4,22 +4,12 @@
 
 <HtmlTag tagName="Experience">
     <HtmlTag tagName="Work">
-        <HtmlTag tagName="blockjobs.site">
+        <HtmlTag tagName="FACES">
             <HtmlTag tagName="Details">
-                NEAR University has scholarship programs (Fellowship Programs) to
-                support the certified users to materialize their proyects and create educational
-                content. One of these programs is the Developer in Residence, of which I was a part,
-                working on the development of a freelance job marketplace with decentralized dispute resolution
-                system, called BlockJobs
+                
             </HtmlTag>
-            <HtmlTag tagName="Roles" >Web developer, contracts developer and unit tester</HtmlTag>
+            <HtmlTag tagName="Roles" >Web developer</HtmlTag>
             <HtmlTag tagName="Results" >
-
-                <HtmlTag tagName={"Website"} >
-                    <a class="text-decoration-line: underline" target="_blank" rel="noreferrer" href={"https://blockjobs.site/"}>blockjobs.site</a>
-                </HtmlTag>
-                <HtmlTag tagName="Articles" >Five Medium educational articles about developing on NEAR blockchain</HtmlTag>
-                <HtmlTag tagName="Libs" >Deploy on crate.io near-rng a compact RNG lib to work with NEAR smarts contracts</HtmlTag>
             </HtmlTag>
         </HtmlTag>
         <p class="mt-4">Waiting for more...</p>
